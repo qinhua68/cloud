@@ -1,0 +1,18 @@
+server:
+  port: 8897
+spring:
+  application:
+    name: hw-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://server1:8080/eureka/
+zuul:
+  routes:
+    hw-admin:
+      path: /api/admin/**
+      serviceId: hw-admin
+    hw-auth:
+      path: /api/auth/**
+      serviceId: hw-auth
