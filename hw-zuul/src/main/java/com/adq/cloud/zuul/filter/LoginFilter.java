@@ -45,14 +45,14 @@ public class LoginFilter extends ZuulFilter {
     logger.info("{} >>> {}", request.getMethod(), request.getRequestURI().toString());
     String token = request.getParameter("token");
     if (token == null) {
-      logger.error("Error! Request Token is Empty");
-      currentContext.setSendZuulResponse(false);
-      currentContext.setResponseStatusCode(401);
-      try {
-        currentContext.getResponse().getWriter().write("Request token is empty");
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
+//      logger.error("Error! Request Token is Empty");
+      currentContext.setSendZuulResponse(true);
+      currentContext.setResponseStatusCode(200);
+//      try {
+//        currentContext.getResponse().getWriter().write("Request token is empty");
+//      } catch (IOException e) {
+//        e.printStackTrace();
+//      }
     }
     return null;
   }
